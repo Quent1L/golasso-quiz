@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Variables CSS pour les couleurs de base */
+  :root {
+    --color-bg-primary: 249 250 251; /* gray-50 */
+    --color-bg-secondary: 255 255 255; /* white */
+    --color-bg-tertiary: 243 244 246; /* gray-100 */
+    --color-text-primary: 17 24 39; /* gray-900 */
+    --color-text-secondary: 75 85 99; /* gray-600 */
+    --color-text-muted: 107 114 128; /* gray-500 */
+    --color-border: 229 231 235; /* gray-200 */
+    --color-border-light: 243 244 246; /* gray-100 */
+  }
+
+  body.dark {
+    --color-bg-primary: 17 24 39; /* gray-900 */
+    --color-bg-secondary: 31 41 55; /* gray-800 */
+    --color-bg-tertiary: 55 65 81; /* gray-700 */
+    --color-text-primary: 243 244 246; /* gray-100 */
+    --color-text-secondary: 209 213 219; /* gray-300 */
+    --color-text-muted: 156 163 175; /* gray-400 */
+    --color-border: 75 85 99; /* gray-600 */
+    --color-border-light: 55 65 81; /* gray-700 */
+  }
+
+  html {
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    background-color: rgb(var(--color-bg-primary));
+    color: rgb(var(--color-text-primary));
+    padding-bottom: 80px; /* Space for bottom navigation */
+  }
+
+  /* Classes utilitaires globales */
+  .bg-primary {
+    background-color: rgb(var(--color-bg-primary));
+  }
+
+  .bg-secondary {
+    background-color: rgb(var(--color-bg-secondary));
+  }
+
+  .bg-tertiary {
+    background-color: rgb(var(--color-bg-tertiary));
+  }
+
+  .text-primary {
+    color: rgb(var(--color-text-primary));
+  }
+
+  .text-secondary {
+    color: rgb(var(--color-text-secondary));
+  }
+
+  .text-muted {
+    color: rgb(var(--color-text-muted));
+  }
+
+  .border-default {
+    border-color: rgb(var(--color-border));
+  }
+  .border-light {
+    border-color: rgb(var(--color-border-light));
+  }
+
+  /* Nouvelles classes utilitaires pour la cohérence */
+  .bg-background {
+    background-color: rgb(var(--color-bg-primary));
+  }
+
+  .bg-surface {
+    background-color: rgb(var(--color-bg-secondary));
+  }
+
+  .bg-accent {
+    background-color: rgb(var(--color-bg-tertiary));
+  }
+
+  .border-border {
+    border-color: rgb(var(--color-border));
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: #10b981; /* green-500 */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+
+  .btn-primary:hover {
+    background-color: #059669; /* green-600 */
+  }
+
+  .btn-secondary {
+    background-color: rgb(var(--color-bg-tertiary));
+    color: rgb(var(--color-text-primary));
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .btn-secondary:hover {
+    opacity: 0.8;
+  }
+
+  .card {
+    background-color: rgb(var(--color-bg-secondary));
+    border-color: rgb(var(--color-border));
+    color: rgb(var(--color-text-primary));
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    border-width: 1px;
+    padding: 1.5rem;
+  }
+
+  .card-header {
+    color: rgb(var(--color-text-primary));
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .nav-item {
+    background-color: rgb(var(--color-bg-secondary));
+    border-color: rgb(var(--color-border));
+    border-top-width: 1px;
+  }
+
+  .nav-item-active {
+    color: #10b981; /* green-500 */
+    background-color: #ecfdf5; /* green-50 */
+  }
+
+  body.dark .nav-item-active {
+    color: #34d399; /* green-400 */
+    background-color: rgba(16, 185, 129, 0.1); /* green-500 with opacity */
+  }
+
+  .nav-item-inactive {
+    color: rgb(var(--color-text-muted));
+  }
+  .nav-item-inactive:hover {
+    color: rgb(var(--color-text-primary));
+  }
+  /* Styles spécifiques pour les boutons de réponse */
+  .answer-button {
+    background-color: #ffffff !important;
+    color: #1f2937 !important; /* gray-800 */
+    border-color: #d1d5db !important; /* gray-300 */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  body.dark .answer-button {
+    background-color: #374151 !important; /* gray-700 */
+    color: #f9fafb !important; /* gray-50 */
+    border-color: #6b7280 !important; /* gray-500 */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .answer-button:hover {
+    border-color: #9ca3af !important; /* gray-400 */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  body.dark .answer-button:hover {
+    border-color: #9ca3af !important; /* gray-400 */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  }
+
+  .answer-button:disabled {
+    cursor: not-allowed;
+  }
+}
